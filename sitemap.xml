@@ -4,9 +4,9 @@
 
    <url>
 
-      <loc>https://ramedde2001.github.io/</loc>
+      <loc>https://juridz.online/</loc>
 
-      <lastmod>2020-05-10</lastmod>
+      <lastmod>2023-01-01</lastmod>
 
       <changefreq>daily</changefreq>
 
@@ -15,9 +15,9 @@
    </url>
       <url>
 
-      <loc>https://ramedde2001.github.io/app.html</loc>
+      <loc>https://juridz.online/contact.html</loc>
 
-      <lastmod>2020-05-10</lastmod>
+      <lastmod>2023-01-1</lastmod>
 
       <changefreq>daily</changefreq>
 
@@ -27,7 +27,7 @@
 
       <url>
 
-      <loc>https://ramedde2001.github.io/syntese_magistrature.html</loc>
+      <loc>https://juridz.online/about.html</loc>
 
       <lastmod>2020-06-17</lastmod>
 
@@ -36,60 +36,7 @@
       <priority>0.8</priority>
 
    </url>
-   <url>
+   
 
-      <loc>https://ramedde2001.github.io/status_chat.html</loc>
-
-      <lastmod>2020-03-26</lastmod>
-
-      <changefreq>daily</changefreq>
-
-      <priority>0.8</priority>
-
-   </url>
-      <url>
-
-      <loc>https://ramedde2001.github.io/?search=زواج+عرفي</loc>
-
-      <lastmod>2020-05-10</lastmod>
-
-      <changefreq>daily</changefreq>
-
-      <priority>0.8</priority>
-
-   </url>
-   <url>
-
-      <loc>https://ramedde2001.github.io/?search=قتل +عمدي</loc>
-
-      <lastmod>2020-05-10</lastmod>
-
-      <changefreq>daily</changefreq>
-
-      <priority>0.8</priority>
-
-   </url>
-   <url>
-
-      <loc>https://ramedde2001.github.io/?search=ادخال+خصومة</loc>
-
-      <lastmod>2020-05-10</lastmod>
-
-      <changefreq>daily</changefreq>
-
-      <priority>0.8</priority>
-
-   </url>
-    <url>
-
-      <loc>https://ramedde2001.github.io/?search=ظروف +تخفيف</loc>
-
-      <lastmod>2020-05-10</lastmod>
-
-      <changefreq>daily</changefreq>
-
-      <priority>0.8</priority>
-
-   </url>
 
 </urlset> 
