@@ -11,7 +11,24 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   let database = firebase.database();
 
+// Get the user's referrer URL
+var referrer = document.referrer;
 
+// Get the current date
+var date = new Date();
+var dateString = date.toISOString().substring(0, 10);
+
+
+
+// Save the user's referrer URL to the database
+database.ref("referrers/" + dateString + "/" + referrer).set({
+  timestamp: firebase.database.ServerValue.TIMESTAMP
+});
+
+// Increment the user count for the current day
+database.ref("users_per_day/" + dateString).transaction(function(currentCount) {
+  return (currentCount || 0) + 1;
+});
 
 
 
