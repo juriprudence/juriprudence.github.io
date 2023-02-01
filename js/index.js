@@ -1,21 +1,11 @@
-  const firebaseConfig = {
-
-    apiKey: "AIzaSyB3vGLCEXB0xWcMbc4MYQgYrLFbjfRB8EU",
-
-    authDomain: "juridz2.firebaseapp.com",
-
-    databaseURL: "https://juridz2-default-rtdb.europe-west1.firebasedatabase.app",
-
-    projectId: "juridz2",
-
-    storageBucket: "juridz2.appspot.com",
-
-    messagingSenderId: "129037806310",
-
-    appId: "1:129037806310:web:56abb8ab89641a55996927",
-
-    measurementId: "G-G54M1PMQ01"
-
+ var firebaseConfig = {
+    apiKey: "AIzaSyA3YltChWDcrQjZhgrv5O_df5VeA1CcVRo",
+    authDomain: "emailaut-8374c.firebaseapp.com",
+    databaseURL: "https://emailaut-8374c.firebaseio.com",
+    projectId: "emailaut-8374c",
+    storageBucket: "emailaut-8374c.appspot.com",
+    messagingSenderId: "441619242876",
+    appId: "1:441619242876:web:b77ee0cdc13ee5ee8ecef9"
   };
 
 
