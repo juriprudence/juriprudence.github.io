@@ -1,20 +1,23 @@
-const firebaseConfig = {
+  const firebaseConfig = {
 
-  apiKey: "AIzaSyA5KAbjPcWm5yBg9SnVYTyxmdZ0X-pz0OM",
+    apiKey: "AIzaSyB3vGLCEXB0xWcMbc4MYQgYrLFbjfRB8EU",
 
-  authDomain: "juritrain.firebaseapp.com",
+    authDomain: "juridz2.firebaseapp.com",
 
-  projectId: "juritrain",
+    databaseURL: "https://juridz2-default-rtdb.europe-west1.firebasedatabase.app",
 
-  storageBucket: "juritrain.appspot.com",
+    projectId: "juridz2",
 
-  messagingSenderId: "814411151105",
+    storageBucket: "juridz2.appspot.com",
 
-  appId: "1:814411151105:web:7a99569ab332cbac300d00",
+    messagingSenderId: "129037806310",
 
-  measurementId: "G-Q2L7FGFBKD"
+    appId: "1:129037806310:web:56abb8ab89641a55996927",
 
-};
+    measurementId: "G-G54M1PMQ01"
+
+  };
+
 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
