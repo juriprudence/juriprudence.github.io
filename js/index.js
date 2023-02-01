@@ -1,12 +1,21 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyA3YltChWDcrQjZhgrv5O_df5VeA1CcVRo",
-    authDomain: "emailaut-8374c.firebaseapp.com",
-    databaseURL: "https://emailaut-8374c.firebaseio.com",
-    projectId: "emailaut-8374c",
-    storageBucket: "emailaut-8374c.appspot.com",
-    messagingSenderId: "441619242876",
-    appId: "1:441619242876:web:b77ee0cdc13ee5ee8ecef9"
-  };
+const firebaseConfig = {
+
+  apiKey: "AIzaSyA5KAbjPcWm5yBg9SnVYTyxmdZ0X-pz0OM",
+
+  authDomain: "juritrain.firebaseapp.com",
+
+  projectId: "juritrain",
+
+  storageBucket: "juritrain.appspot.com",
+
+  messagingSenderId: "814411151105",
+
+  appId: "1:814411151105:web:7a99569ab332cbac300d00",
+
+  measurementId: "G-Q2L7FGFBKD"
+
+};
+
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   let database = firebase.database();
