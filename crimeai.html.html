@@ -1,0 +1,94 @@
+<html dir="rtl" hreflang="ara">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5663397593759138"
+     crossorigin="anonymous"></script>
+<meta charset="UTF-8" >
+<title>موقع الاجتهاد القضائي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="موقع  الاجتهاد القضائي الجزائري">
+<meta name="keywords" content="إجتهاد قضائي,محكمة عليا,اجتهادات,بحث ,دكي,لغة طبيعية,قرارات,بحث سريع">
+
+<!--bootstrap link -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+<!-- end bootstrap link-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<!-- firebaze link-->
+
+<!-- end firebase-->
+<link  rel="stylesheet" href="./css/style.css"/>
+</head>
+<body>
+    <div id="title" class="col-12" >
+        استخلاص الجريمة من الوقائع
+        <br>
+        juridz.online
+    </div> 
+    <!--start nave -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">موقع الاجتهاد القضائي</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./index.html">الصفحة الرئيسية</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./about.html">عن الموقع</a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">معلومات الاتصال</a>
+              </li>
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <script>
+    function sendTextToOpenAI() {
+      const textInput = document.getElementById("textInput").value;
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://api.openai.com/v1/completions");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.setRequestHeader("Authorization", "Bearer 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");
+      xhr.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+          
+const response = JSON.parse(this.responseText);
+console.log(response)
+          document.getElementById("result").innerHTML = response.choices[0].text;
+        }
+      };
+      xhr.send(JSON.stringify({
+  "model": "davinci:ft-personal-2023-02-07-20-21-17",
+  "prompt": "اعطني الجريمة والمادة   ادا علمت ان الفعل\nالفعل:كان سمير يسوق سيارته فاصدم بعلي فقتله الجريمة: قتل الخطأ المادة 261\nالفعل:زنى علي بامرءة متزوجة الجريمة:الزنا المادة 399 \nالفعل:"+textInput+"الجريمة",
+  "temperature": 0,
+  "max_tokens": 35,
+  "top_p": 1,
+  "frequency_penalty": 0,
+  "presence_penalty": 0
+}))
+    }
+  </script>
+<div class="row">
+<div class="col-12">
+  ادخل الوقائع 
+  <input type="text" id="textInput" />
+  </div>
+  <div class="col-12">
+  <button onclick="sendTextToOpenAI()">اعرف الجريمة</button>
+  </div>
+</div>
+  <div id="result"></div>
+
+</div>
+</body>
+</html>
+
