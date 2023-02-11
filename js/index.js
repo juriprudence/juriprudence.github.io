@@ -29,7 +29,24 @@ database.ref("users_per_day/" + dateString).transaction(function(currentCount) {
   return (currentCount || 0) + 1;
 });
 
+function updateQueryParameter() {
+    // Get the text from the input
+    let text = document.getElementById("srt").value;
 
+    // Update the URL with the new query parameter
+    window.history.pushState({}, "", `?text=${text}`);
+    console.log(text)
+  }
+
+ let urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has("text")) {
+    // If the URL has the query parameter, set the value of the text input
+    console.log("has valu"+urlParams.get("text"))
+    document.getElementById("srt").value = urlParams.get("text");
+    var st=document.getElementById("srt")
+    var num=document.getElementById("ticketNum")
+    serch()
+  }
 
 
 var bu=document.getElementById("btn")
