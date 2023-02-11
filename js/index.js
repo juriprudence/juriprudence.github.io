@@ -36,6 +36,25 @@ function updateQueryParameter() {
     // Update the URL with the new query parameter
     window.history.pushState({}, "", `?text=${text}`);
     console.log(text)
+  let currentUrl = window.location.href;
+
+    // Create a hidden text field
+    let tempInput = document.createElement("input");
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = currentUrl;
+    document.body.appendChild(tempInput);
+
+    // Select the text in the hidden field
+    tempInput.select();
+
+    // Copy the text to the clipboard
+    document.execCommand("copy");
+
+    // Remove the hidden field
+    document.body.removeChild(tempInput);
+
+    // Display a message to indicate that the URL has been copied
+    alert("URL copied to clipboard: " + currentUrl);
   }
 
  let urlParams = new URLSearchParams(window.location.search);
