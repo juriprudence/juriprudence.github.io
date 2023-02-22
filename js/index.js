@@ -14,7 +14,7 @@
   let database = firebase.database();
 
 // Get the user's referrer URL
-var avocat = document.getElementsByTagName("link_p"); 
+var avocat = document.getElementById("link_p"); 
 
 
 // Get the current date
