@@ -14,8 +14,8 @@
   let database = firebase.database();
 
 // Get the user's referrer URL
-var avocat = document.getElementById("link_p"); 
-
+ var avocat = document.getElementById("link_p"); 
+avocat.addEventListener("click",avo)
 
 // Get the current date
 var date = new Date();
@@ -29,12 +29,15 @@ var dateString = date.toISOString().substring(0, 10);
 database.ref("users_per_day/" + dateString).transaction(function(currentCount) {
   return (currentCount || 0) + 1;
 });
-avocat.onclick=function()
+function avo()
 {
+console.log("helow")
  database.ref("avocat/" + dateString).transaction(function(currentCount) {
   return (currentCount || 0) + 1;
 });
 }
+
+
 function updateQueryParameter() {
     // Get the text from the input
     let text = document.getElementById("srt").value;
