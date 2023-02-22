@@ -56,6 +56,7 @@ function updateQueryParameter() {
     // Copy the text to the clipboard
     document.execCommand("copy");
 
+ 
     // Remove the hidden field
     document.body.removeChild(tempInput);
 
