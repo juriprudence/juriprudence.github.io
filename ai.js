@@ -30,7 +30,7 @@ database.ref("users_per_day_ai/" + dateString).transaction(function(currentCount
      const xhr = new XMLHttpRequest();
      xhr.open("POST", "https://api-inference.huggingface.co/models/bigscience/bloom");
    xhr.setRequestHeader("Content-Type", "application/json");
-   xhr.setRequestHeader("Authorization", "Bearer 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");
+   xhr.setRequestHeader("Authorization", "Bearer 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");
    xhr.onreadystatechange=function() {
     
      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
