@@ -28,7 +28,7 @@ database.ref("users_per_day_ai/" + dateString).transaction(function(currentCount
   reft.push({searchfor:user_data,date:dateString}) 
     console.log("get from ai work")
      const xhr = new XMLHttpRequest();
-     xhr.open("POST", "https://api-inference.huggingface.co/models/bigscience/bloom");
+     xhr.open("POST", "https://api-inference.huggingface.co/models/bigscience/bloomz");
    xhr.setRequestHeader("Content-Type", "application/json");
    xhr.setRequestHeader("Authorization", "Bearer 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");
    xhr.onreadystatechange=function() {
