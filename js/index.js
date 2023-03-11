@@ -156,7 +156,7 @@ function serch()
         let ref = database.ref('searchs');
         ref.push({searchfor:st.value,date:dateTime})  
     wrd=st.value
-    fetch("https://ramdane-search-jurist.hf.space/run/predict", {
+    fetch("https://ramdane-search-jurist2.hf.space/run/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
