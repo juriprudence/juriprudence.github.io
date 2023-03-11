@@ -10,6 +10,7 @@
 
 
 
+
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   let database = firebase.database();
