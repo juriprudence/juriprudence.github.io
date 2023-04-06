@@ -1,5 +1,5 @@
 
- /** 
+ 
  var firebaseConfig = {
   apiKey: "AIzaSyA3YltChWDcrQjZhgrv5O_df5VeA1CcVRo",
   authDomain: "emailaut-8374c.firebaseapp.com",
@@ -22,7 +22,7 @@ var dateString = date.toISOString().substring(0, 10);
 database.ref("users_per_day_ai/" + dateString).transaction(function(currentCount) {
   return (currentCount || 0) + 1;
 });
-**/
+
 function get_fr_ai(user_data,my_data,callback)
 {
 // let reft = database.ref('search_crime');
