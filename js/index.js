@@ -10,9 +10,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-  let database = app.database();
+firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  let database = firebase.database();
 
 // Get the user's referrer URL
  var avocat = document.getElementById("link_p"); 
