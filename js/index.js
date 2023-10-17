@@ -1,20 +1,18 @@
- var firebaseConfig = {
-    apiKey: "AIzaSyA3YltChWDcrQjZhgrv5O_df5VeA1CcVRo",
-    authDomain: "emailaut-8374c.firebaseapp.com",
-    databaseURL: "https://emailaut-8374c.firebaseio.com",
-    projectId: "emailaut-8374c",
-    storageBucket: "emailaut-8374c.appspot.com",
-    messagingSenderId: "441619242876",
-    appId: "1:441619242876:web:b77ee0cdc13ee5ee8ecef9"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyA3YltChWDcrQjZhgrv5O_df5VeA1CcVRo",
+  authDomain: "emailaut-8374c.firebaseapp.com",
+  databaseURL: "https://emailaut-8374c.firebaseio.com",
+  projectId: "emailaut-8374c",
+  storageBucket: "emailaut-8374c.appspot.com",
+  messagingSenderId: "441619242876",
+  appId: "1:441619242876:web:b77ee0cdc13ee5ee8ecef9",
+  measurementId: "G-9ZKXZ2MT0M"
+};
 
-
-
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-  let database = firebase.database();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+  let database = app.database();
 
 // Get the user's referrer URL
  var avocat = document.getElementById("link_p"); 
