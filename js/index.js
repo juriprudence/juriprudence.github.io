@@ -13,6 +13,7 @@
 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+firebase.analytics();
   let database = firebase.database();
 
 // Get the user's referrer URL
