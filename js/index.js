@@ -77,6 +77,13 @@ function updateQueryParameter() {
     var num=document.getElementById("ticketNum")
     serch()
   }
+else
+  {
+    document.getElementById("srt").value="زواج عرفي"
+    var st=document.getElementById("srt")
+    var num=document.getElementById("ticketNum")
+    serch()
+  }
 
 
 var bu=document.getElementById("btn")
