@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello World in JavaScript</title>
+
+</head>
+<body>
+<script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+  <script type="module">
+      import { GoogleGenerativeAI } from "@google/generative-ai";
+const MODEL_NAME = "gemini-pro";
+const API_KEY = "AIzaSyBGNK56_FPOaDOz9euqc1hDALseI92kTSM";
+const genAI = new GoogleGenerativeAI("AIzaSyBGNK56_FPOaDOz9euqc1hDALseI92kTSM");  // Use your API key here
+const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+const generationConfig = {
+    temperature: 0.9,
+    topK: 1,
+    topP: 1,
+    maxOutputTokens: 2048,
+  };
+
+
+  const parts = [
+    {text: " اكتب لي جزء من درس مختصر في التحكيم الدولي 50 كلمة  تم اطرح علي سؤال يكون في الدرس المختصر الدي قدمته بعد كتابة الدرس لا تقدم الجواب "},
+  ];
+
+  model.generateContent({
+    contents: [{ role: "user", parts }],
+    generationConfig
+  }).then(result => {
+    const response = result.response;
+    document.write(response.text()+"<br>");
+// Create a text input element
+const textInput = document.createElement("input");
+textInput.type = "text";  // Set the input type to text
+
+// Create a button element
+const button = document.createElement("button");
+button.textContent = "ارسل الاجابة";
+
+// Add a click event listener to the button
+button.addEventListener("click", () => {
+  // Access the text input's value
+const parts = [
+    {text: "ما تقيمك للاجابة 1 الى 10 على السؤوال"+response.text()+"ادا كان الجواب"+textInput.value},
+  ];
+  const inputValue = textInput.value;
+model.generateContent({
+    contents: [{ role: "user", parts }],
+    generationConfig
+  }).then(result => {
+const response = result.response;
+    document.write(response.text()+"<br>");
+})
+  // Perform actions based on the input value
+  
+});
+
+// Append both elements to the HTML document body
+document.body.appendChild(textInput);
+document.body.appendChild(button);
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  })
+
+  
+    document.write("Hello World! <br>");  // Writes "Hello World!" directly to the HTML document
+    console.log("Hello World! (in console)");  // Prints "Hello World!" to the browser's developer console
+  </script>
+</body>
+</html>
