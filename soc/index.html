@@ -50,8 +50,15 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
-if(!auth.currentUser)
- window.location.href = '/soc/login.html';
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is logged in, display content accordingly
+    
+  } else {
+    // User is not logged in, redirect to login or display a message
+    window.location.href = 'soc/login.html';
+  }
+});
 
   firebase.analytics();
   let database = firebase.database();
