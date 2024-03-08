@@ -51,7 +51,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 if(!auth.currentUser)
- window.location.href = '/login.html';
+ window.location.href = '/soc/login.html';
 
   firebase.analytics();
   let database = firebase.database();
