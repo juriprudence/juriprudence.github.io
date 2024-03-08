@@ -217,7 +217,7 @@ setTimeout(() => {
       updateChatHistory(); // Update chat history on screen
       document.getElementById("myInput").value = "";
         }).catch((error) => {
-
+ document.getElementById("myInput").value = "حدث خطأ اعد كتابة السؤال من جديد شكرا"
       console.error("Unexpected error:", error);
 window.location.reload();
     },500)
