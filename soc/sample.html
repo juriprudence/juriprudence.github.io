@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <title>الاجابة على الاسئلة في قانون الاسرة الجزائري</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+<!-- firebaze link-->
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+<!-- end firebase-->
+</head>
+
+<body>
+ 
+  <div class="chatbot-container">
+<h1>شات بوت يجيب على الاستفسارات القانونية في قانون الاسرة الجزائري </h1>
+    <div class="chat-history" id="chat-history"></div>
+    <div class="chat-input-field">
+      <input type="text" id="myInput" placeholder="ادخل السؤال">
+      <button id="myButton">إرسال</button>
+    </div>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+  <script type="module">
+const firebaseConfig = {
+  apiKey: "AIzaSyA3YltChWDcrQjZhgrv5O_df5VeA1CcVRo",
+  authDomain: "emailaut-8374c.firebaseapp.com",
+  databaseURL: "https://emailaut-8374c.firebaseio.com",
+  projectId: "emailaut-8374c",
+  storageBucket: "emailaut-8374c.appspot.com",
+  messagingSenderId: "441619242876",
+  appId: "1:441619242876:web:b77ee0cdc13ee5ee8ecef9",
+  measurementId: "G-9ZKXZ2MT0M"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  let database = firebase.database();
+    import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
+
+    const MODEL_NAME = "gemini-pro";
+    const API_KEY = "AIzaSyBGNK56_FPOaDOz9euqc1hDALseI92kTSM"; // Replace with your actual API key
+
+    let uiHistory = []; // Array to store conversation history for UI
+    let apiHistory = [ 
+
+ {
+    "role": "user",
+    "parts": ["مرحبا"]
+  },
+  {
+    "role": "model",
+    "parts": ["حسنا "]
+  },
+
+]; // Array to store conversation history for Gemini API
+
+    async function runChat() {
+      const genAI = new GoogleGenerativeAI(API_KEY);
+      const model = genAI.getGenerativeModel({ model: MODEL_NAME });
+
+      const generationConfig = {
+        temperature: 0.9,
+        topK: 1,
+        topP: 1,
+        maxOutputTokens: 2048,
+      };
+
+      const safetySettings = [
+        {
+          category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+          threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+        },
+        {
+          category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+          threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+        },
+        {
+          category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+          threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+        },
+        {
+          category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+          threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+        },
+      ];
+
+      // Prepare API history with initial greeting
+      //apiHistory.push({ role: "model", parts: ["مرحبا أنا مستشار قانون في قضايا الأسرة"] });
+
+      const chat = model.startChat({
+        generationConfig,
+        safetySettings,
+        history: apiHistory, // Pass apiHistory for Gemini API
+      });
+
+      const userQuery = document.getElementById("myInput").value;
+      uiHistory.push({ role: "user", parts: [userQuery] }); // Add to UI history
+      apiHistory.push({ role: "user", parts: [userQuery] });
+let reft = database.ref('chatboot');
+reft.push({user:[userQuery]})
+      const result = await chat.sendMessage(userQuery);
+      const response = result.response;
+      apiHistory.push({ role: "model", parts: [response.text()] }); // Add to API history
+      uiHistory.push({ role: "model", parts: [response.text()] }); // Add to UI history (formatted)
+
+      updateChatHistory(); // Update chat history on screen
+      document.getElementById("myInput").value = ""; // Clear input field
+    }
+
+    function updateChatHistory() {
+      const chatHistoryElement = document.getElementById("chat-history");
+      chatHistoryElement.innerHTML = ""; // Clear previous history
+
+      uiHistory.forEach((message) => {
+       const messageElement = document.createElement("div");
+    messageElement.classList.add("chat-message");
+    messageElement.classList.add(message.role);
+
+    // Replace "/n" with "<br>" for each message part
+    const formattedParts = message.parts.map((part) => part.replace(/\n/g, "<br>"));
+
+    messageElement.innerHTML = formattedParts.join(""); // Combine formatted parts
+
+    chatHistoryElement.appendChild(messageElement);
+      });
+    }
+
+    const button = document.getElementById("myButton");
+    button.addEventListener("click", runChat);
+  </script>
+</body>
+
+</html>
