@@ -38,7 +38,7 @@ loginForm.addEventListener('submit', (event) => {
       // Check if user's email is verified before redirecting
       if (user.emailVerified) {
         console.log('Logged in!');
-        window.location.href = '/index.html'; // Redirect to index page
+        window.location.href = '/soc/index.html'; // Redirect to index page
       } else {
         errorMessage.textContent = 'Please verify your email address to proceed.';
       }
