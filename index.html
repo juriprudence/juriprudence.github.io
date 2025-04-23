@@ -1,4 +1,3 @@
-
 <html dir="rtl" hreflang="ara">
 <head>
 	
@@ -26,6 +25,7 @@
 	<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
 <!-- end firebase-->
 <link  rel="stylesheet" href="./css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 	</head>
 <body>
        <div id="title" class="col-12" >
@@ -64,6 +64,22 @@
         </div>
       </nav>
       <!-- end of nav-->
+
+     <!-- Country Selection -->
+     <div class="row mb-3 justify-content-center">
+       <div class="col-auto">
+         <label for="countrySelect" class="form-label fw-bold">الدولة:</label>
+       </div>
+       <div class="col-4">
+         <select class="form-select" id="countrySelect">
+           <option value="Algeria" selected>الجزائر</option>
+           <option value="Morocco">المغرب</option>
+           <option value="Egypt">مصر</option>
+           <option value="Qatar">قطر</option>
+         </select>
+       </div>
+     </div>
+     <!-- End Country Selection -->
 	
 		<!--الروابط الاعلانية
 	
@@ -224,6 +240,9 @@
 				<p> حقوق الموقع محفوظة </p>
 <a href="http:/juridz.online">juridz.online</a>
 </div>
+<footer>
+  <p>حقوق الموقع محفوظة &copy; juridz.online</p>
+</footer>
 					</body>
 
 </html>
