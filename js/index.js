@@ -58,13 +58,12 @@ function avo() {
 }
 
 // --- URL Management ---
-function updateQueryParameter() {
-  // Get the text from the input
-  let text = document.getElementById("srt").value;
+  // Get the selected country
+  let country = document.getElementById("countrySelect").value;
 
-  // Update the URL with the new query parameter
-  window.history.pushState({}, "", `?text=${text}`);
-  console.log(text);
+  // Update the URL with the new query parameters
+  window.history.pushState({}, "", `?text=${text}&country=${country}`);
+  console.log(text, country);
   let currentUrl = window.location.href;
 
   // Create a hidden text field
@@ -89,19 +88,21 @@ function updateQueryParameter() {
 let urlParams = new URLSearchParams(window.location.search);
 if (urlParams.has("text")) {
   // If the URL has the query parameter, set the value of the text input
-  console.log("has valu" + urlParams.get("text"));
-  document.getElementById("srt").value = urlParams.get("text");
-  // st = document.getElementById("srt"); // No need to re-assign, already declared and assigned above
-  // num = document.getElementById("ticketNum"); // No need to re-assign
-  st.value = urlParams.get("text"); // Just set the value
-  serch();
+  console.log("has value " + urlParams.get("text"));
+  st.value = urlParams.get("text");
 } else {
-  document.getElementById("srt").value = "زواج عرفي";
-  // st = document.getElementById("srt"); // No need to re-assign
-  // num = document.getElementById("ticketNum"); // No need to re-assign
-  st.value = "زواج عرفي"; // Just set the value
-  serch();
+  st.value = "زواج عرفي";
 }
+
+// Restore country from URL if present
+if (urlParams.has("country")) {
+  let countryFromUrl = urlParams.get("country");
+  if (apiUrls[countryFromUrl]) {
+    countrySelect.value = countryFromUrl;
+  }
+}
+
+serch();
 
 // --- Element References --- (Declarations moved higher up)
 // const bu = document.getElementById("btn");
