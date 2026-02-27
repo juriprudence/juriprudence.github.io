@@ -1,254 +1,173 @@
-<html dir="rtl" hreflang="ara">
+<html dir="rtl" lang="ar">
 <head>
-	
-<meta charset="UTF-8" >
-<title>موقع الاجتهاد المحكمة العليا</title>
-	
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="موقع  الاجتهاد القضائي المحكمة العليا">
-<meta name="keywords" content="إجتهاد قضائي,المحكمة العليا,اجتهادات,بحث ,دكي,لغة طبيعية,قرارات المحكمة العليا,بحث في قرارات المحكمة العليا">
-<meta name="google-adsense-account" content="ca-pub-5663397593759138">
-<!--bootstrap link -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>موقع الاجتهاد المحكمة العليا</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="البحث الشامل في قرارات المحكمة العليا - إجتهادات قضائية معززة بالذكاء الاصطناعي">
+  
+  <!-- Bootstrap & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-	
-<!-- end bootstrap link-->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+</head>
 
-<!-- firebaze link-->
-<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-database.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
-<!-- end firebase-->
-<link  rel="stylesheet" href="./css/style.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-	</head>
 <body>
-       <div id="title" class="col-12" >
- البحث الشامل في قرارات المحكمة العليا
-       <br>
-       juriprudence.github.io
-    </div> 
-    <!--start nave -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">موقع  قرارات المحكمة العليا </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./index.html">الصفحة الرئيسية</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./about.html">عن الموقع</a>
-              </li>
-		    <li class="nav-item">
-                <a class="nav-link" href="./crimeai.html">اعرف الجريمة من الوقائع</a>
-              </li>
-            
-              <li class="nav-item">
-                <a class="nav-link" href="./contact.html">معلومات الاتصال</a>
-              </li>
-		     <li class="nav-item">
-                <a class="nav-link" href="./article.html">مقالات</a>
-              </li>
-             
-            </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">موقع قرارات المحكمة العليا</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link active" href="./index.html">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">عن الموقع</a></li>
+          <li class="nav-item"><a class="nav-link" href="./crimeai.html">تحليل الوقائع</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">اتصل بنا</a></li>
+          <li class="nav-item"><a class="nav-link" href="./article.html">مقالات</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">البحث الشامل في قرارات المحكمة العليا</h1>
+      <p class="hero-subtitle">juriprudence.github.io - بوابتكم للاجتهاد القضائي الحديث</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Search Box wrapper -->
+    <div class="search-wrapper">
+      <div class="content-card">
+        <div class="row g-3 align-items-center mb-4">
+          <div class="col-md-2">
+            <label for="countrySelect" class="form-label fw-bold">الدولة:</label>
+          </div>
+          <div class="col-md-4">
+            <select class="form-select" id="countrySelect">
+              <option value="Algeria" selected>الجزائر</option>
+              <option value="Morocco">المغرب</option>
+              <option value="Egypt">مصر</option>
+              <option value="Qatar">قطر</option>
+            </select>
+          </div>
+          <div class="col-md-6 text-md-start">
+            <div class="d-flex align-items-center justify-content-md-end">
+              <label for="ticketNum" class="me-2 mb-0">نتائج البحث:</label>
+              <input id="ticketNum" type="number" class="form-control mb-0" style="width: 80px;" min="0" max="9" value="0">
+            </div>
           </div>
         </div>
-      </nav>
-      <!-- end of nav-->
 
-     <!-- Country Selection -->
-     <div class="row mb-3 justify-content-center">
-       <div class="col-auto">
-         <label for="countrySelect" class="form-label fw-bold">الدولة:</label>
-       </div>
-       <div class="col-4">
-         <select class="form-select" id="countrySelect">
-           <option value="Algeria" selected>الجزائر</option>
-           <option value="Morocco">المغرب</option>
-           <option value="Egypt">مصر</option>
-           <option value="Qatar">قطر</option>
-         </select>
-       </div>
-     </div>
-     <!-- End Country Selection -->
-	
-	<div class="row">
-	  <div class="col-12">
-	    <h2>مرحبا بك في موقع juriprudence.github.io</h2>
-	    <p>موقع juriprudence.github.io هو موقع متخصص في البحث عن الاجتهادات القضائية في العالم العربي. نستخدم تقنيات الذكاء الاصطناعي لمساعدتك في العثور على الاجتهادات القضائية المناسبة لقضيتك.</p>
-	    <p>يمكنك استخدام مربع البحث أدناه لإدخال جملة البحث الخاصة بك، وسيقوم النظام بالبحث عن الاجتهادات القضائية الأكثر صلة.</p>
-	  </div>
-	</div>
+        <div class="mb-4">
+          <label for="srt" class="form-label fw-bold h5">أدخل جملة البحث</label>
+          <div class="input-group">
+            <input class="form-control form-control-lg" id="srt" placeholder="مثلاً: حقوق الزوجة في المطلقة...">
+            <button id="btn" class="btn btn-primary px-5">ابحث الآن</button>
+          </div>
+        </div>
 
-                <br>
-                <div class="row ">
-                  <div class="col-2">
-                <label for="srt">جملة البحث</label>
-                </div>
-                <div class="col-10">
-                <input  class="form-control" id="srt"/>
-                </div>
-                </div>
-                <!--end of div 1-->
-                <div class="row">
-                  <div class="col-2 ">
-                    <input  class="form-check-input"type="checkbox" id="ex1" value="يشكل عدم العدل بين الزوجات ضرر معتبر شرعا يبرر التطليق"/>
-                
-
-                  </div>
-                  <div class="col-10">
-                    <label  class="form-check-label"for="ex1">متال 1 :هل يشكل عدم العدل بين الزوجات ضرر معتبر شرعا يبرر التطليق</label>
-                
-                    </div>
-
-                </div>
-
-                <!--end of exemle 1-->
-                <div class="row">
-                  <div class="col-2 ">
-                         <input class="form-check-input" type="checkbox" id="ex2" value="هل يسار الزوجة يشكل مانع لاستحقاقها النفقة"/>
-
-                  </div>
-                  <div class="col-10">
-                    <label class="form-check-label" for="ex2"> متال 2 :هل يسار الزوجة يشكل مانع لاستحقاقها النفقة </label>
-                    </div>
-
-                </div>
-                <!-- end of exemple 2 -->
-                                
-                <div class="row">
-                <div class="col-2">
-                <label for="ticketNum">ترتيب البحث</label>
-                </div>
-
-                <input id="ticketNum" type="number"   min="0" max="9" name="ticketNum" value="0" />
-                </div>
-                </div>
-                <div class="row">
-                <a id="btn" class="btn btn-primary"  role="Button">ابحث</a>
-                </div>
-								  <div class="row">
-                  <a id="btnsave" class="btn btn-primary" onclick="updateQueryParameter()" role="Button">احفض الرابط لمشاركته</a>
-                  </div>
-	<div class="row">
-	<div  class="col-6">
-			
-النسحة المحترفة المجانية بحسب الغرف على قوقل ستور بحث ادق واجتهادات اكتر  
-	<a id="link_p" href="https://play.google.com/store/apps/details?id=com.juridz.jurisapp">
-  <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="250" height="100" />
-							     </a
-	</div>
-	<div  class="col-6">
-			
-	</div>
-	</div>
-								  
-								  <div vir.role="alert" id="vir"><div>
-									  
-                <div id="resp"></div>
-               
+        <div class="row mt-4">
+          <div class="col-12">
+            <p class="text-muted small mb-2">أمثلة سريعة:</p>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="ex1" value="يشكل عدم العدل بين الزوجات ضرر معتبر شرعا يبرر التطليق">
+              <label class="form-check-label" for="ex1">هل يشكل عدم العدل بين الزوجات ضرر معتبر شرعا يبرر التطليق؟</label>
             </div>
-									  </div>
-
-           <div id="nump" class="row">
-           <div class="col-12">
-            <nav  aria-label="Page navigation example ">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="page-item"><a id="nump" class="page-link" href="#">1</a></li>
-                <li class="page-item"><a id="nump"class="page-link" href="#">2</a></li>
-                <li class="page-item"><a id="nump" class="page-link" href="#">3</a></li>
-                <li class="page-item"><a id="nump" class="page-link" href="#">4</a></li>
-                <li class="page-item"><a id="nump" class="page-link" href="#">5</a></li>
-               
-                
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="ex2" value="هل يسار الزوجة يشكل مانع لاستحقاقها النفقة">
+              <label class="form-check-label" for="ex2">هل يسار الزوجة يشكل مانع لاستحقاقها النفقة؟</label>
             </div>
-					     <div class="col-12">
-            <nav  aria-label="Page navigation example ">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="page-item"><a id="nump" class="page-link" href="#">6</a></li>
-                <li class="page-item"><a id="nump"class="page-link" href="#">7</a></li>
-                <li class="page-item"><a id="nump" class="page-link" href="#">8</a></li>
-                <li class="page-item"><a id="nump" class="page-link" href="#">9</a></li>
-                
-               
-                
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            </div>
-                     </div>
-			<div class="row">	
-						     <div class="col-6">
-النسحة المحترفة المجانية على قوقل ستور بحث ادق واجتهادات اكتر  
-	<a id="link_p" href="https://play.google.com/store/apps/details?id=com.juridz.jurisapp">
-  <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="250" height="100" />
-							     </a></div>
-          <!--           <div class="card col-6" style="width: 18rem;">
+          </div>
+        </div>
 
-<h5 class="card-title">الاتصال بمحامي</h5>
-<p class="card-text"></p>
-<a  id="link_p" href="https://www.facebook.com/salim.av.7" target="_blank" class="btn btn-primary">الدهاب الى صفحت  المحامي</a>
-	
+        <div class="mt-4 text-center">
+          <button id="btnsave" class="btn btn-outline-secondary btn-sm" onclick="updateQueryParameter()">حفظ رابط البحث للمشاركة</button>
+        </div>
+      </div>
 
-			     </div>-->
-</div>
-<div class="row">
-  <div class="col-12">
-    <h3>كيف يعمل الموقع</h3>
-    <p>يستخدم موقع juriprudence.github.io تقنيات الذكاء الاصطناعي لفهم معنى جملة البحث الخاصة بك، ثم يبحث في قاعدة بيانات الاجتهادات القضائية لايجاد النتائج الأكثر صلة.</p>
-    <p>يمكنك ايضا استخدام الامثلة المتوفرة لمساعدتك في صياغة جملة البحث الخاصة بك.</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <h3>مميزات الموقع</h3>
-    <ul>
-      <li>بحث بالمعنى وليس بالكلمات المفتاحية</li>
-      <li>قاعدة بيانات شاملة للقرارات القضائية</li>
-      <li>نتائج دقيقة ومحدثة</li>
-      <li>واجهة سهلة الاستخدام</li>
-    </ul>
-  </div>
-</div>
-        <script src="js/index.js" ></script>
-			<div class="col-6 ">
- <div>
-				<p> حقوق الموقع محفوظة </p>
-<a href="https://juriprudence.github.io">juriprudence.github.io</a>
-</div>
-<footer>
-  <p>حقوق الموقع محفوظة &copy; juriprudence.github.io</p>
-</footer>
-					</body>
+      <!-- App Promotion -->
+      <div class="content-card text-center py-4 bg-light border-0 shadow-sm">
+        <p class="mb-3 fw-bold">تفضل بزيارة النسخة المحترفة المجانية على قوقل ستور لبحث أدق واجتهادات أكثر</p>
+        <a id="link_p" href="https://play.google.com/store/apps/details?id=com.juridz.jurisapp">
+          <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="60">
+        </a>
+      </div>
 
+      <!-- Results Display -->
+      <div id="resp-container">
+        <div id="resp" class="mb-4">نتائج البحث ستظهر هنا...</div>
+      </div>
+
+      <!-- Pagination Section -->
+      <div id="nump" class="d-flex flex-column align-items-center mt-5">
+        <nav aria-label="Page navigation" class="mb-3">
+          <ul class="pagination pagination-lg">
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Page navigation">
+          <ul class="pagination pagination-lg">
+            <li class="page-item"><a class="page-link" href="#">6</a></li>
+            <li class="page-item"><a class="page-link" href="#">7</a></li>
+            <li class="page-item"><a class="page-link" href="#">8</a></li>
+            <li class="page-item"><a class="page-link" href="#">9</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Info Sections -->
+    <section class="row mt-5 pt-4 border-top">
+      <div class="col-md-6 mb-4">
+        <div class="content-card h-100">
+          <h3>كيف يعمل الموقع</h3>
+          <p>يستخدم موقع <strong>juriprudence.github.io</strong> تقنيات الذكاء الاصطناعي المتقدمة لفهم السياق القانوني لجملة البحث الخاصة بك، مما يتيح لك الوصول إلى القرارات الأكثر صلة بموضوع قضيتك بدقة متناهية.</p>
+          <p>أدخل تساؤلك باللغة العربية البسيطة وسيتكفل النظام بالبحث في آلاف القرارات القضائية.</p>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="content-card h-100">
+          <h3>مميزات المنصة</h3>
+          <ul class="list-group list-group-flush bg-transparent">
+            <li class="list-group-item bg-transparent px-0 border-0">✓ بحث بالمعنى والسياق القانوني وليس الكلمات المفتاحية فقط</li>
+            <li class="list-group-item bg-transparent px-0 border-0">✓ قاعدة بيانات شاملة ومحدثة لقرارات المحكمة العليا</li>
+            <li class="list-group-item bg-transparent px-0 border-0">✓ واجهة عصرية وسهلة الاستخدام تدعم جميع الأجهزة</li>
+            <li class="list-group-item bg-transparent px-0 border-0">✓ نتائج فورية مرتبة حسب درجة الصلة</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="mb-2">حقوق الموقع محفوظة &copy; <a href="https://juriprudence.github.io">juriprudence.github.io</a></p>
+      <div class="small opacity-75">منصة متخصصة في توفير الاجتهادات القضائية باستخدام الذكاء الاصطناعي</div>
+    </div>
+  </footer>
+
+  <script src="js/index.js"></script>
+</body>
 </html>
 
 
