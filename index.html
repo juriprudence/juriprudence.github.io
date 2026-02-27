@@ -1,10 +1,11 @@
 <html dir="rtl" lang="ar">
+
 <head>
   <meta charset="UTF-8">
   <title>موقع الاجتهاد المحكمة العليا</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="البحث الشامل في قرارات المحكمة العليا - إجتهادات قضائية معززة بالذكاء الاصطناعي">
-  
+
   <!-- Bootstrap & Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -13,7 +14,7 @@
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  
+
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
@@ -68,7 +69,8 @@
           <div class="col-md-6 text-md-start">
             <div class="d-flex align-items-center justify-content-md-end">
               <label for="ticketNum" class="me-2 mb-0">نتائج البحث:</label>
-              <input id="ticketNum" type="number" class="form-control mb-0" style="width: 80px;" min="0" max="9" value="0">
+              <input id="ticketNum" type="number" class="form-control mb-0" style="width: 80px;" min="0" max="9"
+                value="0">
             </div>
           </div>
         </div>
@@ -85,18 +87,22 @@
           <div class="col-12">
             <p class="text-muted small mb-2">أمثلة سريعة:</p>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="ex1" value="يشكل عدم العدل بين الزوجات ضرر معتبر شرعا يبرر التطليق">
-              <label class="form-check-label" for="ex1">هل يشكل عدم العدل بين الزوجات ضرر معتبر شرعا يبرر التطليق؟</label>
+              <input class="form-check-input" type="checkbox" id="ex1"
+                value="يشكل عدم العدل بين الزوجات ضرر معتبر شرعا يبرر التطليق">
+              <label class="form-check-label" for="ex1">هل يشكل عدم العدل بين الزوجات ضرر معتبر شرعا يبرر
+                التطليق؟</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="ex2" value="هل يسار الزوجة يشكل مانع لاستحقاقها النفقة">
+              <input class="form-check-input" type="checkbox" id="ex2"
+                value="هل يسار الزوجة يشكل مانع لاستحقاقها النفقة">
               <label class="form-check-label" for="ex2">هل يسار الزوجة يشكل مانع لاستحقاقها النفقة؟</label>
             </div>
           </div>
         </div>
 
         <div class="mt-4 text-center">
-          <button id="btnsave" class="btn btn-outline-secondary btn-sm" onclick="updateQueryParameter()">حفظ رابط البحث للمشاركة</button>
+          <button id="btnsave" class="btn btn-outline-secondary btn-sm" onclick="updateQueryParameter()">حفظ رابط البحث
+            للمشاركة</button>
         </div>
       </div>
 
@@ -104,9 +110,38 @@
       <div class="content-card text-center py-4 bg-light border-0 shadow-sm">
         <p class="mb-3 fw-bold">تفضل بزيارة النسخة المحترفة المجانية على قوقل ستور لبحث أدق واجتهادات أكثر</p>
         <a id="link_p" href="https://play.google.com/store/apps/details?id=com.juridz.jurisapp">
-          <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="60">
+          <img alt="Get it on Google Play"
+            src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="60">
         </a>
       </div>
+
+      <!-- Advanced Legal AI Tools Section -->
+      <section class="row mt-4 g-4">
+        <div class="col-md-6">
+          <div class="content-card h-100 border-start border-4 border-primary">
+            <div class="d-flex align-items-center mb-3">
+              <span class="fs-2 me-3">🤖</span>
+              <h3 class="mb-0">شات بوت السنهوري</h3>
+            </div>
+            <p class="text-muted">مساعد قانوني ذكي يعتمد على تراث العلامة عبد الرزاق السنهوري. أداة متطورة تم تدريبها
+              على أمهات الكتب القانونية للإجابة على استفساراتكم المعمقة.</p>
+            <a href="https://juriprudence.github.io/sanhouri/"
+              class="btn btn-outline-primary btn-sm mt-2 w-100 py-2">ابدأ المحادثة الآن</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="content-card h-100 border-start border-4 border-warning">
+            <div class="d-flex align-items-center mb-3">
+              <span class="fs-2 me-3">🚗</span>
+              <h3 class="mb-0">تطبيق تعويضات حوادث المرور</h3>
+            </div>
+            <p class="text-muted">أداة عملية مخصصة لحساب التعويضات الناتجة عن حوادث المرور والأضرار الجسمانية بدقة
+              عالية. رفيقك الرقمي لتقدير الحقوق والتعويضات القانونية.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.ramdane.tahwid"
+              class="btn btn-outline-warning btn-sm mt-2 w-100 py-2">تحميل التطبيق</a>
+          </div>
+        </div>
+      </section>
 
       <!-- Results Display -->
       <div id="resp-container">
@@ -140,7 +175,8 @@
       <div class="col-md-6 mb-4">
         <div class="content-card h-100">
           <h3>كيف يعمل الموقع</h3>
-          <p>يستخدم موقع <strong>juriprudence.github.io</strong> تقنيات الذكاء الاصطناعي المتقدمة لفهم السياق القانوني لجملة البحث الخاصة بك، مما يتيح لك الوصول إلى القرارات الأكثر صلة بموضوع قضيتك بدقة متناهية.</p>
+          <p>يستخدم موقع <strong>juriprudence.github.io</strong> تقنيات الذكاء الاصطناعي المتقدمة لفهم السياق القانوني
+            لجملة البحث الخاصة بك، مما يتيح لك الوصول إلى القرارات الأكثر صلة بموضوع قضيتك بدقة متناهية.</p>
           <p>أدخل تساؤلك باللغة العربية البسيطة وسيتكفل النظام بالبحث في آلاف القرارات القضائية.</p>
         </div>
       </div>
@@ -148,9 +184,12 @@
         <div class="content-card h-100">
           <h3>مميزات المنصة</h3>
           <ul class="list-group list-group-flush bg-transparent">
-            <li class="list-group-item bg-transparent px-0 border-0">✓ بحث بالمعنى والسياق القانوني وليس الكلمات المفتاحية فقط</li>
-            <li class="list-group-item bg-transparent px-0 border-0">✓ قاعدة بيانات شاملة ومحدثة لقرارات المحكمة العليا</li>
-            <li class="list-group-item bg-transparent px-0 border-0">✓ واجهة عصرية وسهلة الاستخدام تدعم جميع الأجهزة</li>
+            <li class="list-group-item bg-transparent px-0 border-0">✓ بحث بالمعنى والسياق القانوني وليس الكلمات
+              المفتاحية فقط</li>
+            <li class="list-group-item bg-transparent px-0 border-0">✓ قاعدة بيانات شاملة ومحدثة لقرارات المحكمة العليا
+            </li>
+            <li class="list-group-item bg-transparent px-0 border-0">✓ واجهة عصرية وسهلة الاستخدام تدعم جميع الأجهزة
+            </li>
             <li class="list-group-item bg-transparent px-0 border-0">✓ نتائج فورية مرتبة حسب درجة الصلة</li>
           </ul>
         </div>
@@ -168,6 +207,5 @@
 
   <script src="js/index.js"></script>
 </body>
+
 </html>
-
-
