@@ -16,10 +16,10 @@ let database = firebase.database();
 
 // --- Country Data ---
 const apiUrls = {
-    "Algeria": "https://ramdane-search-jurist3.hf.space/run/predict",
-    "Morocco": "https://ramdane-search-juristmaroc.hf.space/run/predict",
-    "Egypt": "https://ramdane-search-jurist-egypt.hf.space/run/predict",
-    "Qatar": "https://ramdane-search-jurist-qatar.hf.space/run/predict"
+  "Algeria": "https://ramdane-search-jurist3.hf.space/run/predict",
+  "Morocco": "https://ramdane-search-juristmaroc.hf.space/run/predict",
+  "Egypt": "https://ramdane-search-jurist-egypt.hf.space/run/predict",
+  "Qatar": "https://ramdane-search-jurist-qatar.hf.space/run/predict"
 };
 // Add other API types (aiApi, factApi) here if needed later
 
@@ -46,23 +46,25 @@ var dateString = date.toISOString().substring(0, 10);
 // Save the user's referrer URL to the database
 
 // Increment the user count for the current day
-database.ref("users_per_day/" + dateString).transaction(function(currentCount) {
+database.ref("users_per_day/" + dateString).transaction(function (currentCount) {
   return (currentCount || 0) + 1;
 });
 
 function avo() {
   console.log("helow");
-  database.ref("avocat/" + dateString).transaction(function(currentCount) {
+  database.ref("avocat/" + dateString).transaction(function (currentCount) {
     return (currentCount || 0) + 1;
   });
 }
 
 // --- URL Management ---
-  // Get the selected country
-  let country = document.getElementById("countrySelect").value;
+function updateQueryParameter() {
+  // Get the selected text and country
+  let text = st.value;
+  let country = countrySelect.value;
 
   // Update the URL with the new query parameters
-  window.history.pushState({}, "", `?text=${text}&country=${country}`);
+  window.history.pushState({}, "", `?text=${encodeURIComponent(text)}&country=${encodeURIComponent(country)}`);
   console.log(text, country);
   let currentUrl = window.location.href;
 
@@ -82,7 +84,7 @@ function avo() {
   document.body.removeChild(tempInput);
 
   // Display a message to indicate that the URL has been copied
-  alert("URL copied to clipboard: " + currentUrl);
+  alert("تم نسخ رابط البحث للمشاركة: " + currentUrl);
 }
 
 let urlParams = new URLSearchParams(window.location.search);
@@ -123,7 +125,7 @@ ex1.addEventListener("change", cha);
 ex2.addEventListener("change", cha2); // Added listener call
 countrySelect.addEventListener('change', serch); // Trigger search on country change
 
-document.addEventListener("click", function(e) {
+document.addEventListener("click", function (e) {
   if (e.target.id == "nump") {
     num.value = e.target.innerHTML - 1;
     serch();
@@ -151,7 +153,7 @@ function cha() {
 //send data to firebase
 function send_res(even) {
   let reft = database.ref('serch_fr_train');
-  reft.push({searchfor: st.value, res_data: datares[0], rel_valeu: even.target.id * 0.33});
+  reft.push({ searchfor: st.value, res_data: datares[0], rel_valeu: even.target.id * 0.33 });
   alert('تم اضافة التقييم بنجاح شكرا على المساعدة');
 }
 
@@ -160,9 +162,9 @@ function serch() {
   // Ensure pagination is visible (if needed, seems related to nump element)
   let numpElement = document.getElementById("nump"); // Use let/const and get element inside function
   if (numpElement) { // Check if element exists
-      numpElement.style.display = ""; // Or "block" or "flex" depending on desired layout
+    numpElement.style.display = ""; // Or "block" or "flex" depending on desired layout
   } else {
-      console.warn("Element with ID 'nump' not found.");
+    console.warn("Element with ID 'nump' not found.");
   }
 
   // --- Get Selected Country and API URL ---
@@ -193,38 +195,38 @@ function serch() {
       ]
     })
   })
-  .then(r => r.json())
-  .then(
-    r => {
-      let data = r.data;
-      datares = data;
-      resp.innerHTML = data;
-      if (data != "لم نتمكن من ايجاد النتيجة اما لعدم وجود الاجتهاد او لعدم كتابة جملة بحث مناسبة") {
-        //create button
-        var buttonContainer = document.createElement('div');
-        buttonContainer.className = 'col-12 ';
-        buttonContainer.style = "background-color:white;";
-        p = document.createElement('p');
-        p.innerHTML = "ساهم في تحسين محرك البحث";
-          
-        buttonContainer.appendChild(p);
-        for (var i = 0; i < 4; i++) {
-          // Create a button
-          var button = document.createElement('button');
-          // Set the button's text
-          button.className = "btn btn-primary";
-          button.innerHTML = buttonlistname[i];
-          button.id = i;
-          button.addEventListener("click", send_res);
-          // Add the button to the container
-          buttonContainer.appendChild(button);
+    .then(r => r.json())
+    .then(
+      r => {
+        let data = r.data;
+        datares = data;
+        resp.innerHTML = data;
+        if (data != "لم نتمكن من ايجاد النتيجة اما لعدم وجود الاجتهاد او لعدم كتابة جملة بحث مناسبة") {
+          //create button
+          var buttonContainer = document.createElement('div');
+          buttonContainer.className = 'col-12 ';
+          buttonContainer.style = "background-color:white;";
+          p = document.createElement('p');
+          p.innerHTML = "ساهم في تحسين محرك البحث";
+
+          buttonContainer.appendChild(p);
+          for (var i = 0; i < 4; i++) {
+            // Create a button
+            var button = document.createElement('button');
+            // Set the button's text
+            button.className = "btn btn-primary";
+            button.innerHTML = buttonlistname[i];
+            button.id = i;
+            button.addEventListener("click", send_res);
+            // Add the button to the container
+            buttonContainer.appendChild(button);
+          }
+
+          // Add the button container to the page
+          resp.appendChild(buttonContainer);
         }
-          
-        // Add the button container to the page
-        resp.appendChild(buttonContainer);
       }
-    }
-  );
+    );
 }
 
 // Responsive/mobile-friendly enhancements
